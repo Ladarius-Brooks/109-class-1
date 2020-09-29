@@ -1,0 +1,25 @@
+.cartItem {
+    display: flex;
+}
+
+.cartItem img {
+    flex:1;
+
+}
+
+.cartItem .productInfo {
+    flex: 1;
+}
+
+.cartItem .quantity {
+    flex: 1;
+}
+.cartItem .quantity {
+    flex: 1;
+}
+.cartItem .quantity {
+    flex: 1;
+}
+.cartItem .quantity {
+    flex: 1;
+}

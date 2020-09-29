@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './navBar.css';
-
 import "font-awesome/css/font-awesome.css";
+import { connect } from "react-redux";
 
 
 // cc
@@ -63,7 +63,7 @@ class NavBar extends Component {
                 >
                   <i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
                   View Cart
-                  <span class="badge badge-secondary cart-badge">23</span>
+                  <span class="badge badge-secondary cart-badge">{this.props.count}</span>
                 </Link>
               </div>
             </div>
@@ -72,8 +72,14 @@ class NavBar extends Component {
         );
         }
 }
+
+const mapStateToProps = (state) => {
+  return{
+    count: state.cart.length,
+  };
+};
  
-export default NavBar;
+export default connect( mapStateToProps, null )(NavBar);
 
 // Advances ES6 topics
 // Arrow functions

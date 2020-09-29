@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
+import { connect } from "react-redux";
+import { addTodo } from "../store/actions";
 
 class Todo extends Component {
     state = {
-        todoText: "",
-        todoList: [],
+        todoText: ""
     };
     render() { 
         return ( 
@@ -15,7 +15,7 @@ class Todo extends Component {
                 </div>
 
                 <div className="list">
-                    {this.state.todoList.map((t) => <div className="item">{t}</div>)}
+                    {this.props.todo.map((t) => <div className="item">{t}</div>)}
                     <hr></hr>
                     { this.getTodoCount() }
                 </div>
@@ -24,7 +24,7 @@ class Todo extends Component {
     }
 
     getTodoCount = () => {
-        let count = this.state.todoList.length;
+        let count = this.props.todo.length;
         if(count ===1) {
             return <label>We have 1 element in the list</label>;
         }
@@ -34,19 +34,30 @@ class Todo extends Component {
 
     onTextChanged = (event) => {
         this.setState ({todoText: event.target.value });
-    }
-;
+    };
+
     addTodo = () => {
+       // let inputTxt = this.state.todoText;
+        
         if(this.state.todoText) {
-            let todoList = [...this.state.todoList, this.state.todoText];
-            this.setState({ todoList: todoList, todoText: "" });
+            this.props.addTodo(this.state.todText);
+            this.setState({todoText: ""});
+           // let todoList = [...this.state.todoList, inputTxt];
+            this.setState({ todoText: "" });
+        }else{ // in case that only spaces were inserted in the input, clean
             //this.setState({ todoList, todoText: ""}) mean the same thing
         }
+           
+        };
     };
-}
+
 
 // create an item component div/img/price and quantity picker
 
-
+const mapStateToProps = (state) => {
+    return{
+        todo: state.todo,
+    }
+};
  
-export default Todo;
+export default connect(mapStateToProps, {addTodo})(Todo);
