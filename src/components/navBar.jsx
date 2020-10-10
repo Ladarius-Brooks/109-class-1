@@ -61,9 +61,9 @@ class NavBar extends Component {
                   className="btn btn-outline-info my-2 my-sm-0"
                   to="/cart"
                 >
-                  <i class="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
+                  <i className="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
                   View Cart
-                  <span class="badge badge-secondary cart-badge">{this.props.count}</span>
+                  <span className="badge badge-secondary cart-badge">{this.props.count}</span>
                 </Link>
               </div>
             </div>

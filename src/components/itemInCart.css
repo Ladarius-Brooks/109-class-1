@@ -1,9 +1,16 @@
 .cartItem {
     display: flex;
+    border: 1px solid black;
+    margin: 15px;
+    padding:10px;
+    height: 100px;
+    width: 60%;
 }
 
 .cartItem img {
     flex:1;
+    max-height: 100%;
+    max-width: 100%;
 
 }
 
@@ -13,13 +20,32 @@
 
 .cartItem .quantity {
     flex: 1;
+    padding-top: 25px;
+    color: #ec8814;
+    font-weight: bold;
 }
-.cartItem .quantity {
+
+.cartItem .total {
     flex: 1;
+    padding-top: 25px;
+    color: #ec8814;
+    font-weight: bold;
 }
-.cartItem .quantity {
+.cartItem .remove {
     flex: 1;
+    padding-top: 25px;
+    color: red;
 }
-.cartItem .quantity {
-    flex: 1;
+.description {
+    padding-right: 5px;
+    font-weight: bold;
+    color: teal;
+}
+.price{
+    color: #ec8814;
+    font-weight: bold;
+    padding-top: 25px;
+}
+.cartTitle {
+    color: teal;
 }

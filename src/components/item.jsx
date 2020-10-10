@@ -24,7 +24,7 @@ class Item extends Component {
 
                 <QuantityPicker minimum={this.state.minimum} value={this.state.quantity} onValueChange={ (qnt) => this.handleQuantityChange(qnt) }></QuantityPicker>
 
-                <button onClick={this.addProductToCart} className= "btn-add btn btn-sm btn-primary"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+                <button onClick={this.addProductToCart} className= "btn-add btn btn-sm btn-primary"><i className="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
             </div>
          );
     }
@@ -53,5 +53,11 @@ class Item extends Component {
         this.setState({ quantity: qnt});
     };
 }
- 
-export default connect(null, { incrementCartCounter, addProduct })(Item);
+    const mapStateToProps = (state) => {
+        return{
+            cart: state.cart,
+        };
+    };
+
+
+export default connect(mapStateToProps, { incrementCartCounter, addProduct })(Item);

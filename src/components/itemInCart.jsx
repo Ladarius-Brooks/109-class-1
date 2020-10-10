@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import "font-awesome/css/font-awesome.css";
+import {connect} from 'react-redux';
+import { removeProduct } from '../store/actions';
+import "./itemInCart.css";
 
 class ItemInCart extends Component {
     state = {  }
@@ -17,14 +20,15 @@ class ItemInCart extends Component {
 
                 <label className="total">${this.props.info.quantity * this.props.info.product.price}</label>
 
-                <i onClick={this.removeProduct} classNae="fa fa-trash-0 remove" aria-hidden="true"></i>
+                <i onClick={this.removeProduct} className="fa fa-trash-o remove" aria-hidden="true"></i>
             </div>
         );
     }
 
     removeProduct = () => {
         console.log("Removing product" + this.props.info.product.title);
+        this.props.removeProduct(this.props.info.product.id);
     }
 }
  
-export default ItemInCart;
+export default connect(null, { removeProduct })(ItemInCart);

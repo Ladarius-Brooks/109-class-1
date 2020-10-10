@@ -1,0 +1,17 @@
+.title {
+    color: teal;
+    text-decoration: underline;
+    letter-spacing: .5rem;
+    font-size: 5rem;
+    padding: 20px;
+}
+.listAmount {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: teal;
+    font-size: large;
+}
+.list {
+    font-family: Arial, Helvetica, sans-serif;
+    color: teal;
+    font-size: 2rem;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Item from "./item";
 import ItemService from "../services/itemService";
+import "./catalog.css";
 
 
 class Catalog extends Component {
@@ -68,10 +69,10 @@ class Catalog extends Component {
         this.setState({selectedCategory: catName});
     };
 
-    componentDidMount() {
+    async componentDidMount() {
         // perfect place to get data from server / DB / AJAX call
         let service = new ItemService();
-        const data = service.getProducts();
+        const data = await service.getProducts();
         this.setState({ items: data });
 
         // identify the unique categories from data
